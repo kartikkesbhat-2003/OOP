@@ -1,0 +1,46 @@
+/*
+Create a class Employee having data members empID, name, salary and
+experience. Using array of objects print the above data
+*/
+
+import java.util.*;
+
+class employee
+{
+    String name, mail;
+    int salary,experience;
+
+    public employee(String n, String m, int s,int e)
+    {
+        this.name=n;
+        this.mail=m;
+        this.salary=s;
+        this.experience=e;
+    }
+    public String displaydata()
+    {
+        String dada="Name : "+name+"\nMail : "+mail+"\nSalary : "+salary+"\nExperience(in year) : "+experience;
+        return dada;
+    }
+}
+
+public class exp16 {
+
+    public static void main(String [] args)
+    {
+        employee e1=new employee("Kartik","kartikkesbhat444@gmail.com",60000,2);
+        employee e2=new employee("Shreyash","patilshreyash2@gmail.com",65000,3);
+        employee e3=new employee("Yash","yashsangale2003@gmail.com",100000,5);
+
+        employee[] employees=new employee[3];
+        employees[0] = e1;
+        employees[1] = e2;
+        employees[2] = e3;
+
+        for(employee e : employees)
+        {
+            System.out.println(e.displaydata()+"\n");
+        }
+    }
+
+}

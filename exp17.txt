@@ -1,0 +1,59 @@
+/*
+Consider a class Student having data members name, marks of three subjects,
+average and member function printDetails(). Take input of 3 students from
+user using array of objects and print it
+*/
+
+import java.util.*;
+
+class student
+{
+    String name;
+    int roll;
+
+    public student(String name , int roll)
+    {
+        this.name=name;
+        this.roll=roll;
+    }
+
+    public String tostring()
+    {
+        return "Name : "+name+"\nRoll : "+roll;
+    }
+
+}
+public class exp17 {
+    public static void main(String [] args)
+    {
+        String name;
+        int roll;
+        Scanner get = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter the name of student : ");
+        name = get.nextLine();
+        System.out.println("Enter the roll of "+name+" : ");
+        roll= get.nextInt();
+        student s1=new student(name,roll);
+        System.out.println("Enter the name of student : ");
+        name = input.nextLine();
+        System.out.println("Enter the roll of "+name+" : ");
+        roll= get.nextInt();
+        student s2=new student(name,roll);
+        System.out.println("Enter the name of student : ");
+        name = input.nextLine();
+        System.out.println("Enter the roll of "+name+" : ");
+        roll= get.nextInt();
+        student s3=new student(name,roll);
+
+        student[] students = new student[3];
+        students[0] = s1;
+        students[1] = s2;
+        students[2] = s3;
+
+        for ( student s : students)
+        {
+            System.out.println(s.tostring());
+        }
+    }
+}

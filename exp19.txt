@@ -1,0 +1,73 @@
+/*
+There are 3 online courses available Python, Data Structures and Java for an
+online course. Create an interface OnlineCourse having method getDetails().
+Using factory design pattern return the OS specific details
+ */
+
+import java.util.*;
+
+interface onlinecourse
+{
+    void getdetails();
+}
+
+class python implements onlinecourse
+{
+    public void getdetails()
+    {
+        System.out.println("Language : Python");
+        System.out.println("Use : It is the language used for machine learning");
+        System.out.println("Course Fees : RS.7000");
+    }
+}
+
+class datastructure implements onlinecourse
+{
+    public void getdetails()
+    {
+        System.out.println("Language : Data Structure");
+        System.out.println("Use : It is most important part of programming");
+        System.out.println("Course Fees : RS.8000");
+    }
+}
+
+class java implements onlinecourse
+{
+    public void getdetails()
+    {
+        System.out.println("Language : Java");
+        System.out.println("Use : It is most used programming language");
+        System.out.println("Course Fees : RS.5500");
+    }
+}
+
+class factLanguage
+{
+    public onlinecourse getinstance(int n)
+    {
+        switch (n)
+        {
+            case 1:
+                return new python();
+            case 2:
+                return new datastructure();
+            default:
+                return new java();
+        }
+        
+    }
+}
+
+
+public class exp19 {
+    public static void main(String [] args)
+    {
+        Scanner get=new Scanner(System.in);
+        factLanguage f=new factLanguage();
+        int choice;
+        System.out.println("1.Python\n2.Data Structure\n3.Java\n\nEnter your choice : ");
+        choice= get.nextInt();
+        onlinecourse c=f.getinstance(choice);
+        c.getdetails();
+    }
+}

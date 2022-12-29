@@ -1,0 +1,66 @@
+/*
+Create a class Android, iOS and BlackBerry which implements interface OS
+having method void spec(). Using factory design pattern create a class which
+will create instances of above classes and based on nature of OS respective
+class method should get called
+*/
+
+import java.util.*;
+
+interface os {
+    void spec();
+}
+
+class android implements os {
+    public void spec()
+    {
+        System.out.println("Android device have a relatively poor reputation for security");
+    }
+}
+
+class ios implements os {
+    public void spec() {
+        System.out.println("Apple device have a strong reputation for security");
+    }
+}
+
+class blackberry implements os {
+    public void spec() {
+        System.out.println("Blackberry device has the strongest reputation for security");
+    }
+}
+
+class osFacctory
+{
+    public os getinstance(String str)
+    {
+        if(str.equals("secure"))
+        {
+            return new ios();
+        }
+        else if(str.equals("open"))
+        {
+            return new android();
+        }
+        else
+        {
+            return new blackberry();
+        }
+    }
+}
+
+public class exp18 {
+    public static void main(String [] args)
+    {
+        osFacctory osf=new osFacctory();
+        os obj=osf.getinstance("secure");
+        obj.spec();
+
+        os obj2=osf.getinstance("open");
+        obj2.spec();
+
+        os obj3=osf.getinstance("blackberry");
+        obj3.spec();
+
+    }
+}

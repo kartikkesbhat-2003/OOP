@@ -1,0 +1,91 @@
+/*
+
+Design a base class shape with two double type values and member functions
+to input the data and compute_area() for calculating area of shape. Derive two 
+classes: triangle and rectangle. Make compute_area() as abstract function and
+redefine this function in the derived class to suit their requirements. Write a
+program that accepts dimensions of triangle/rectangle and display calculated
+area.
+
+ */
+
+import java.util.*;
+
+abstract class Shape
+{
+    public double dim1, dim2;
+    Shape(){}
+    Shape(double a ,double b)
+    {
+        a=dim1;
+        b=dim2;
+    }
+
+    abstract double compute_area();
+
+    void get()
+    {
+        Scanner input=new Scanner(System.in);
+        System.out.println("Enter dimension 1 : ");
+        dim1=input.nextDouble();
+        System.out.println("Enter dimension 2 : ");
+        dim2=input.nextDouble();
+    }
+}
+
+class triangle extends Shape
+{
+    double area;
+    triangle(){}
+    triangle(double base,double height)
+    {
+        super(height,base);
+    }
+    double compute_area()
+    {
+        area=dim1*dim2/2;
+        return area;
+    }
+}
+
+class rectangle extends Shape
+{
+    double area;
+    rectangle(){}
+    rectangle(double length,double breadth)
+    {
+        super(length,breadth);
+    }
+    double compute_area()
+    {
+        area=dim1*dim2;
+        return area;
+    }
+}
+
+public class exp4 {
+    public static void main(String [] args)
+    {
+        Scanner input=new Scanner(System.in);
+        int ch;
+        do
+        {
+            System.out.println("1.TRIANGLE\n2.RECTANGLE\n3.EXIT\n\tEnter your choice : ");
+            ch=input.nextInt();
+            switch (ch) {
+                case 1 -> {
+                    triangle t = new triangle();
+                    t.get();
+                    System.out.println("Area of triangle is " + t.compute_area());
+                }
+                case 2 -> {
+                    rectangle r = new rectangle();
+                    r.get();
+                    System.out.println("Area of rectangle is " + r.compute_area());
+                }
+                case 3 -> System.out.println("***EXITED SUCCESSFULLY***");
+                default -> System.out.println("!!! INVALID INPUT !!!");
+            }
+        }while (ch!=3);
+    }
+}

@@ -1,0 +1,48 @@
+/*
+
+Define a class student with four data members such as name, roll no, sub1 and
+sub2. Define appropriate methods to INITITALIZE AND DISPLAY VALUES OF
+DATA MEMBERS also calculate total marks and percentage scored by student
+in three subjects
+
+*/
+
+import java.util.*;
+
+class Student1{
+    String name;
+    int rno,sub1,sub2,sub3;
+    int total;
+    double avg;
+
+    void getDetails(){
+        Scanner sc=new Scanner(System.in);
+        System.out.print("\nEnter Name :");
+        name=sc.nextLine();
+        System.out.print("\nEnter Roll No :");
+        rno=sc.nextInt();
+        System.out.print("\nSub 1 marks :");
+        sub1=sc.nextInt();
+        System.out.print("\nSub 2 marks :");
+        sub2=sc.nextInt();
+        System.out.print("\nSub 3 marks :");
+        sub3=sc.nextInt();
+
+        total=this.sub1+this.sub2+this.sub3;
+        avg=this.total/3.0;
+    }
+    void printDetails()
+    {
+        System.out.println("Name : "+this.name);
+        System.out.println("Roll : "+this.rno);
+        System.out.println("Total : "+this.total);
+        System.out.println("Percentage : "+this.avg);
+    }
+}
+class exp13{
+    public static void main(String []args){
+        Student1 st=new Student1();
+        st.getDetails();
+        st.printDetails();
+    }
+}

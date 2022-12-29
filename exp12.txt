@@ -1,0 +1,38 @@
+/*
+
+Write a program to check of candidate, if the age is less than 18 throw 
+‘AgeExceptionFailure’ exception else allow candidate for voting
+
+ */
+
+import java.util.*;
+
+class InvalidAgeException extends Exception
+{
+    InvalidAgeException (String message)
+    {
+        super(message);
+    }
+}
+class exp12
+{
+    public static void main(String[] a)
+    {
+        int age;
+        Scanner in = new Scanner(System.in);
+        try
+        {
+            System.out.println(" ENTER AGE.");
+            age=in.nextInt();
+            if (age<18)
+                throw new InvalidAgeException("YOU ARE NOT ELIGGIBLE TOVOTE");
+            else
+                System.out.println("YOU ARE ELIGIBLE TO VOTE");
+        }
+        catch(InvalidAgeException e)
+        {
+            System.out.println("CAUGHT AN EXCEPTION");
+            System.out.println(e.getMessage());
+        }
+    }
+}

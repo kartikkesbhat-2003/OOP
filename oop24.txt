@@ -1,0 +1,130 @@
+//Interface Area is having method calculateArea(). Calculate the area for the
+//following classes: Square, Circle, Triangle, Rectangle
+
+import java.util.*;
+
+interface area
+{
+    void calculatearea();
+}
+
+class square implements area
+{
+    Scanner get = new Scanner(System.in);
+    double length,area;
+
+    square()
+    {
+        length=0;
+    }
+
+    public void calculatearea()
+    {
+        System.out.println("Enter the length of side of square : ");
+        length=get.nextFloat();
+        area=length*length;
+        System.out.println("Area of the square is : "+area);
+    }
+}
+
+class circle implements area
+{
+    Scanner get = new Scanner(System.in);
+    double radius,area;
+    double pie=3.14;
+
+    circle()
+    {
+        radius=0;
+    }
+
+    public void calculatearea()
+    {
+        System.out.println("Enter the redius of circle : ");
+        radius=get.nextFloat();
+        area=pie*radius*radius;
+        System.out.println("Area of the circle is : "+area);
+    }
+}
+
+class triangle implements area
+{
+    Scanner get = new Scanner(System.in);
+    float base, height,area;
+
+    triangle()
+    {
+        base = 0;
+        height = 0;
+    }
+
+    public void calculatearea()
+    {
+        System.out.println("Enter the base of triangle : ");
+        base=get.nextFloat();
+        System.out.println("Enter the height of triangle : ");
+        height=get.nextFloat();
+        area=base*height/2;
+        System.out.println("Area of the triangle is : "+area);
+    }
+}
+
+class rectangle implements area
+{
+    Scanner get = new Scanner(System.in);
+    float length,breadth,area;
+
+    rectangle()
+    {
+        length=0;
+        breadth=0;
+    }
+
+    public void calculatearea()
+    {
+        System.out.println("Enter the length of rectangle : ");
+        length=get.nextFloat();
+        System.out.println("Enter the breadth of rectangle : ");
+        breadth=get.nextFloat();
+        area=length*breadth;
+        System.out.println("Area of the square is : "+area);
+    }
+}
+
+
+public class exp24 {
+    public static void main(String [] args)
+    {
+        area a=null;
+        Scanner get=new Scanner(System.in);
+        int choice;
+        aa:
+        do {
+            System.out.println("1.Square\n2.Circle\n3.Triangle\n4.Rectangle\n5.Exit\n\nEnter your choice : ");
+            choice=get.nextInt();
+            switch(choice)
+            {
+                case 1:
+                    a=new square();
+                    a.calculatearea();
+                    break;
+                case 2:
+                    a=new circle();
+                    a.calculatearea();
+                    break;
+                case 3:
+                    a=new triangle();
+                    a.calculatearea();
+                    break;
+                case 4:
+                    a=new rectangle();
+                    a.calculatearea();
+                    break;
+                case 5:
+                    break aa;
+                default:
+                    System.out.println("\n!! INVALID INPUT !!");
+            }
+        }while(true);
+    }
+}
