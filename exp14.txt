@@ -1,0 +1,20 @@
+import java.util.*;
+class Main{
+    public static void main(String[] args)
+    {
+        ArrayList<Integer>obj= new ArrayList<Integer>();
+        obj.add(10);
+        obj.add(5);
+        obj.add(4);
+        obj.add(7);
+        obj.add(54);
+        obj.add(3,34);
+        System.out.println("array elements: "+obj);
+        obj.remove(3);
+        System.out.println("removing index 3 element: "+(obj.remove(3)));
+        obj.size();
+        System.out.println("size of the array: "+(obj.size()));
+    }
+}
+
+
